@@ -35,11 +35,11 @@ Private Sub Form_Load()
     
     'load bitmap file
     'Set tiles = LoadSurface(App.Path & "\assets\graphics\blank.BMP", 320, 96)
-    Set tiles = LoadSurface(App.Path & "\assets\graphics\map-tilesets\map1.bmp", 320, 80)
+    Set tiles = LoadSurface(App.Path & "\assets\graphics\map-tilesets\map1.BMP", 320, 80)
     
     'load the map data from the Mappy export file
     'LoadMap App.Path & "\assets\graphics\blank.CSV"
-    LoadBinaryMap App.Path & "\assets\binary-data\binmaps\map1.mar", 33, 33
+    LoadBinaryMap App.Path & "\assets\binary-data\binmaps\map1.mar", 256, 192
     
     'create the small scroll buffer surface
      Set scrollbuffer = d3ddev.CreateImageSurface( _
@@ -73,20 +73,18 @@ Private Sub Form_Load()
         End If
     Loop
 End Sub
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, _
-    X As Single, Y As Single)
-        
-        'move mouse on left side to scroll left
-        If X < SCREENWIDTH / 2 Then SpeedX = -STEP
-        
-        'move mouse on right side to scroll right
-        If X > SCREENWIDTH / 2 Then SpeedX = STEP
-        
-        'move mouse on top half to scroll up
-        If Y < SCREENHEIGHT / 2 Then SpeedY = -STEP
-        
-        'move mouse on bottom half to scroll down
-        If Y > SCREENHEIGHT / 2 Then SpeedY = STEP
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+    'move mouse on left side to scroll left
+    If x < SCREENWIDTH / 2 Then SpeedX = -STEP
+    
+    'move mouse on right side to scroll right
+    If x > SCREENWIDTH / 2 Then SpeedX = STEP
+    
+    'move mouse on top half to scroll up
+    If y < SCREENHEIGHT / 2 Then SpeedY = -STEP
+    
+    'move mouse on bottom half to scroll down
+    If y > SCREENHEIGHT / 2 Then SpeedY = STEP
 End Sub
 Private Sub Form_QueryUnload(Cancel As Integer, Unload As Integer)
     Shutdown

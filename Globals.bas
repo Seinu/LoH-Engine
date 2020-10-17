@@ -14,17 +14,19 @@ Public Const SCREENWIDTH As Long = 240
 Public Const SCREENHEIGHT As Long = 160
 Public Const STEP As Integer = 1
 
-'game world size
-Public Const GAMEWORLDWIDTH As Long = 4096
-Public Const GAMEWORLDHEIGHT As Long = 3072
 
-'tile size
-Public Const TILEWIDTH As Integer = 16
-Public Const TILEHEIGHT As Integer = 16
+'tile and game world constants
+Public Const TILEWIDTH As Long = 16
+Public Const TILEHEIGHT As Long = 16
+Public Const MAPWIDTH As Long = 256
+Public Const MAPHEIGHT As Long = 192
+Public Const GAMEWORLDWIDTH As Long = TILEWIDTH * MAPWIDTH
+Public Const GAMEWORLDHEIGHT As Long = TILEHEIGHT * MAPHEIGHT
 
-'scrolling  window size
-Public Const WINDOWWIDTH  As Integer = (SCREENWIDTH \ TILEWIDTH) * TILEWIDTH
+'scrolling window size
+Public Const WINDOWWIDTH As Integer = (SCREENWIDTH \ TILEWIDTH) * TILEWIDTH
 Public Const WINDOWHEIGHT As Integer = (SCREENHEIGHT \ TILEHEIGHT) * TILEHEIGHT
 
+'scroll buffer size
 Public Const SCROLLBUFFERWIDTH As Integer = SCREENWIDTH + TILEWIDTH
 Public Const SCROLLBUFFERHEIGHT As Integer = SCREENHEIGHT + TILEHEIGHT
